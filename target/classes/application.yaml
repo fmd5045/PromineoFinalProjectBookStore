@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    username: book_store
+    password: book_store
+    url: jdbc:mysql://localhost:3306/book_store
+    
+  jpa:
+    hibernate:
+      #none tells hibernate not to create the tables
+      #create tells hibernate to drop existing tables then create new ones
+      #update tells hibernate to compare the pre-existing schema and update it
+      #---> with the new one
+      #create-drop similar to update, but it will drop the tables a program is stopped
+      #validate tells hibernate to check if the tables exist otherwise throw an exception
+      ddl-auto: create-drop
+    show-sql: true
+    #tells springbook to wait before populating the tables.
+    defer-datasource-initialization: true
+ 
+  sql:
+    init:
+      #never means that sql will not create and populate the tables
+      #always means that sql will create and populate the tables
+      mode: always
